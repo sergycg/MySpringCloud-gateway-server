@@ -1,0 +1,34 @@
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#      - id: servicio-oauth
+#        uri: lb://servicio-oauth
+#        predicates:
+#          - Path=/api/security/**
+#        filters:
+#          - StripPrefix=2
+#      - id: servicio-usuarios
+#        uri: lb://servicio-usuarios
+#        predicates:
+#          - Path=/api/usuarios/**
+#        filters:
+#          - StripPrefix=2
+#      - id: servicio-recetas-cocina
+#        uri: lb://servicio-recetas-cocina
+#        predicates:
+#          - Path=/api/recetas/**
+#        filters:
+#          - StripPrefix=2
+#      - id: servicio-aws-s3
+#        uri: lb://servicio-aws-s3
+#        predicates:
+#          - Path=/api/aws/s3/**
+#        filters:
+#          - StripPrefix=3
+#      - id: servicio-arduino-voltaje
+#        uri: lb://servicio-arduino-voltaje
+#        predicates:
+#          - Path=/api/arduino/voltaje/**
+#        filters:
+#          - StripPrefix=3
