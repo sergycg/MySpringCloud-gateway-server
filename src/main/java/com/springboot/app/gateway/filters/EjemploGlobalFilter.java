@@ -1,4 +1,4 @@
-package com.formacionbdi.springboot.app.gateway.filters;
+package com.springboot.app.gateway.filters;
 
 import java.util.Optional;
 

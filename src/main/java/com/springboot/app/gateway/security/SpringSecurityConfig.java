@@ -1,4 +1,4 @@
-package com.formacionbdi.springboot.app.gateway.security;
+package com.springboot.app.gateway.security;
 
 import java.util.Arrays;
 import java.util.Collections;

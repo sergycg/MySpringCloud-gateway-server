@@ -1,4 +1,4 @@
-package com.formacionbdi.springboot.app.gateway.security;
+package com.springboot.app.gateway.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
