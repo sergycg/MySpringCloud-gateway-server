@@ -37,6 +37,7 @@ public class SpringSecurityConfig {
 	}
 	
 
+/* OK para RECETAS pero NO para ARDUINO 
 	@Bean
 	@Order(Ordered.HIGHEST_PRECEDENCE)
     public CorsWebFilter corsWebFilter() {
@@ -58,5 +59,27 @@ public class SpringSecurityConfig {
 
         return new CorsWebFilter(source);
     }
+*/
 	
+	/* OK para ARDUINO pero HAY QUE PROBAR EN RECETAS */
+	@Bean
+	@Order(Ordered.HIGHEST_PRECEDENCE)
+    public CorsWebFilter corsWebFilter() {
+
+        final CorsConfiguration corsConfig = new CorsConfiguration();
+        corsConfig.setAllowedOrigins(Collections.singletonList("*"));
+        corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+//        corsConfig.setAllowCredentials(true); //comentar esta linea para recetas. Probar comentado para arduino(tb funciona)
+//        corsConfig.addAllowedHeader("*");
+        corsConfig.addAllowedHeader("Content-Type");
+        corsConfig.addAllowedHeader("Authorization");
+     
+        
+        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/api/security/oauth/**", corsConfig);
+		source.registerCorsConfiguration("/api/recetas/**", corsConfig);
+
+        return new CorsWebFilter(source);
+    }
+
 }
